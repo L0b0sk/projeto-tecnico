@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 import asyncio
 from models.hotel import HotelResultado
-from utils.brower import create_browser
+from utils.navegador import create_browser
 from utils.formatter import (
     clean_price,
     clean_text,
