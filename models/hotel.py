@@ -14,10 +14,10 @@ class HotelResultado:
     total_preco: float
     moeda: str
     data_scarping: str
-    limpeza: Optiona[float] = None
-    outras_taxas: Optiona[float] = None
+    limpeza: Optional[float] = None
+    outras_taxas: Optional[float] = None
     nota_hotel: Optional[float] = None
     num_avaliacoes: Optional[int] = None
-    politica_cancelamento: Option[str] = None
+    politica_cancelamento: Optional[str] = None
     
     

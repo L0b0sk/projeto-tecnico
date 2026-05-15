@@ -29,4 +29,4 @@ async def criar_navegador(headless: bool = True):
 
     logger.debug("Navegador criado com sucesso")
 
-    return browser, pagina
+    return navegador, pagina

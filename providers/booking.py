@@ -14,14 +14,13 @@ from utils.formatter import (
 # Logger do projeto
 from utils.logger import get_logger
 
-# Cria logger para este módulo
 logger = get_logger(__name__)
 MAX_RETRIES = 3
 RETRY_DELAY = 2
-PAGE_LOAD_WAIT = 3000  # milissegundos
+PAGE_LOAD_WAIT = 3000
 
 
-async def scrape_booking(url: str, check_in: str, check_out: str, adults: int) -> HotelResult:
+async def scrape_booking(url: str, check_in: str, check_out: str, adults: int) -> HotelResultado:
     for attempt in range(1, MAX_RETRIES + 1):
         logger.info(f"Tentativa {attempt}/{MAX_RETRIES} — Booking.com")
         
@@ -43,7 +42,7 @@ async def scrape_booking(url: str, check_in: str, check_out: str, adults: int) -
                 raise
 
 
-async def _do_scrape(url: str, check_in: str, check_out: str, adults: int) -> HotelResult:
+async def _do_scrape(url: str, check_in: str, check_out: str, adults: int) -> HotelResultado:
     url_com_params = (
         f"{url}"
         f"?checkin={check_in}"
@@ -175,7 +174,7 @@ async def _do_scrape(url: str, check_in: str, check_out: str, adults: int) -> Ho
 
         data_scraping = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
-        result = HotelResult(
+        result = HotelResultado(
             provider="booking",
             hotel=hotel_name,
             url=url,
