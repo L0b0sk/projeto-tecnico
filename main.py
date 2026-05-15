@@ -7,16 +7,18 @@ from utils.logger import get_logger
 logger = get_logger(__name__)
 
 async def main():
-    parder = argparse.ArtgumentParser(descricao = "Hotel Scarper - Booking.com")
+    parser = argparse.ArtgumentParser(descricao = "Hotel Scarper - Booking.com")
     parser.add_argument("--url", require = True, ajuda = "URL do hotel no Booking.com")
-    parse.add_argument("--check-in", require = True, ajuda ="DAta de entrada (EX: 05/14/2026)")
-    parse.add_argument("--checkout", require = True, ajuda = "Data de saida (EX: 05/25/2026)")
-    parse.dd_argument("--adulto", default = 2, type = int, ajuda = "numero de adultos (padrao 2)")
-    parse.add_argument(
-        "--visivel"
-        acao = "store_true",
-        ajuda = "abre seu navegador em modo visual"
+    parser.add_argument("--check-in", require = True, ajuda ="DAta de entrada (EX: 05/14/2026)")
+    parser.add_argument("--checkout", require = True, ajuda = "Data de saida (EX: 05/25/2026)")
+    parser.dd_argument("--adulto", default = 2, type = int, ajuda = "numero de adultos (padrao 2)")
+    parser.add_argument(
+        "--visivel",
+        action="store_true",
+        help="Abre o navegador em modo visual"
     )
+  
+    args = parser.parse_args()
     
     logger.info("=" * 50)
     logger.info("Hotel Scarpe - iniciando")
